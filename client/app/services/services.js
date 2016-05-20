@@ -7,15 +7,22 @@ angular.module('shortly.services', [])
       method: 'GET',
       url: '/api/links'
     }).then(function successCallback(response) {
-      console.log ('success', response);
-      return;
+      return response.data;
     }, function errorCallaback (response) {
       console.log ('error');
     });
   };
 
-  var addOne = function() {
-
+  var addOne = function(url) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: url
+    }).then (function successCallback(response) {
+      return response;
+    }, function errorCallaback () {
+      console.log ('error');
+    });
   };
 
   return {
