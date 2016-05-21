@@ -30,8 +30,9 @@ angular.module('shortly.auth', [])
 
   $scope.checkValid = function(formValid, callback) {
     if (!formValid) {
-      alert('username/password invalid');
+      $scope.user.errorMsg = 'Username/Password is not Valid';
     } else {
+      $scope.user.errorMsg = '';
       callback();
     }
   };

@@ -7,7 +7,10 @@ angular.module('shortly.services', [])
       method: 'GET',
       url: '/api/links'
     }).then(function successCallback(response) {
-      return response.data;
+      var sorted = response.data.sort(function(a, b) {
+        return a.visits < b.visits;
+      });
+      return sorted;
     }, function errorCallaback (response) {
       console.log('error');
     });
