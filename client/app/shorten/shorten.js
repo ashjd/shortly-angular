@@ -20,11 +20,10 @@ angular.module('shortly.shorten', [])
       });
   };
 
-  $scope.getUrl = function(url, isValid) {
+  $scope.getUrl = function(url, isValid, callback) {
     if (isValid) {
       $scope.link.url = url;
-      $scope.addLink();
+      callback();
     }
   };
-
 });

@@ -8,12 +8,12 @@
   <body>
     <h1>Shortly</h1>
     <div class="navigation">
-    <ul>
+    <ul ng-init="selectedTab = 'links'">
       <li>
-      <a href="#/links">Links</a>
+      <a href="#/links" ng-class="{'selected': selectedTab ==='links'}" ng-click="selectedTab = 'links'">Links</a>
       </li>
       <li>
-      <a href="#/shorten">Shorten</a>
+      <a href="#/shorten" ng-class="{'selected': selectedTab ==='shorten'}" ng-click="selectedTab = 'shorten'">Shorten</a>
       </li>
       <li ng-controller='AuthController'>
       <a href="" ng-click='signout()'>Log Out</a>

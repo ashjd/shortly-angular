@@ -1,18 +1,21 @@
 <div id='container' ng-controller="ShortenController">
 <!-- Your code here -->
-<form name='urlInput'>
-<input type="url" ng-model='newUrl' required>
-<button type ='submit' ng-click='getUrl(newUrl, urlInput.$valid)' ng-disabled='urlInput.input.$invalid'> Shorten </button>
-</form>
-<div>
-  <div class='link' ng-repeat='link in shortLink' ng-click=''>
-    <img src='../assets/redirect_icon.png'>
-    <div class='info'>
-      <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
-      <div class='title'>{{link.title}}</div>
-      <div class='original'>{{link.url}}</div>
-      <a href='{{link.baseUrl}}/{{link.code}}'>{{link.baseUrl}}/{{link.code}}</a>
+  <form name='urlInput'>
+    <input type="url" ng-model='newUrl' ng-class="{'error': urlInput.$invalid}" placeholder="Add a URL">
+    <button type ='submit' ng-click='getUrl(newUrl, urlInput.$valid, addLink)' ng-disabled='urlInput.input.$invalid'> Shorten </button>
+  </form>
+  <div>
+    <div class='link' ng-repeat='link in shortLink' ng-click=''>
+      <img src='../assets/redirect_icon.png'>
+      <div class='info'>
+        <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
+        <div class='title'>{{link.title}}</div>
+        <div class='original'>{{link.url}}</div>
+        <a href='{{link.baseUrl}}/{{link.code}}'>{{link.baseUrl}}/{{link.code}}</a>
+    </div>
   </div>
-</div>
+  <span ng-show='urlInput.$invalid'>
+    This is not a valid URL.    
+  </span>
 </div>
 
