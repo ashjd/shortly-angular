@@ -9,7 +9,7 @@ angular.module('shortly.services', [])
     }).then(function successCallback(response) {
       return response.data;
     }, function errorCallaback (response) {
-      $location.path('/signin');
+      console.log('error');
     });
   };
 

@@ -21,9 +21,12 @@ angular.module('shortly.shorten', [])
       });
   };
 
-  $scope.getUrl = function(url) {
-    $scope.link.url = url;
-    $scope.addLink();
+  $scope.getUrl = function(url, isValid) {
+    console.log(isValid);
+    if (isValid) {
+      $scope.link.url = url;
+      $scope.addLink();
+    }
   };
 
 });

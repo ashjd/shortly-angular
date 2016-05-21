@@ -1,7 +1,9 @@
 <div id='container' ng-controller="ShortenController">
 <!-- Your code here -->
-<input ng-model='newUrl'>
-<button ng-click='getUrl(newUrl)'> Shorten </button>
+<form name='urlInput'>
+<input type="url" ng-model='newUrl' required>
+<button type ='submit' ng-click='getUrl(newUrl, urlInput.$valid)' ng-disabled='urlInput.input.$invalid'> Shorten </button>
+</form>
 <div>
   <div class='link' ng-repeat='link in shortLink' ng-click=''>
     <img src='../assets/redirect_icon.png'>
