@@ -1,7 +1,11 @@
 angular.module('shortly.shorten', [])
 
-.controller('ShortenController', function ($scope, $location, Links) {
+.controller('ShortenController', function (Auth, $scope, $location, Links) {
   // Your code here
+
+  if (!Auth.isAuth()) {
+    $location.path('/signin');
+  }
 
   $scope.link = {
     url: ''

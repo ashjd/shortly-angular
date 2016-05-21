@@ -1,6 +1,6 @@
 angular.module('shortly.services', [])
 
-.factory('Links', function ($http) {
+.factory('Links', function ($http, $location) {
   // Your code here
   var getAll = function() {
     return $http({
@@ -9,7 +9,7 @@ angular.module('shortly.services', [])
     }).then(function successCallback(response) {
       return response.data;
     }, function errorCallaback (response) {
-      console.log ('error');
+      $location.path('/signin');
     });
   };
 
@@ -19,6 +19,7 @@ angular.module('shortly.services', [])
       url: '/api/links',
       data: url
     }).then (function successCallback(response) {
+
       return response;
     }, function errorCallaback () {
       console.log ('error');
