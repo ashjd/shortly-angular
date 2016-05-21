@@ -29,13 +29,14 @@ angular.module('shortly.auth', [])
   };
 
   $scope.checkValid = function(formValid, callback) {
-    console.log(formValid);
     if (!formValid) {
-      console.log('something is not valid');
       alert('username/password invalid');
     } else {
-      console.log('user/pass is valid');
       callback();
     }
+  };
+
+  $scope.signout = function() {
+    Auth.signout();
   };
 });
