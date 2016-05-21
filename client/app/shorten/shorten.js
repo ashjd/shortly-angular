@@ -16,13 +16,11 @@ angular.module('shortly.shorten', [])
   $scope.addLink = function() {
     Links.addOne($scope.link)
       .then(function(response) {
-        console.log(response.data);
         $scope.shortLink[0] = response.data;
       });
   };
 
   $scope.getUrl = function(url, isValid) {
-    console.log(isValid);
     if (isValid) {
       $scope.link.url = url;
       $scope.addLink();

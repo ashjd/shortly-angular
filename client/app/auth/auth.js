@@ -27,4 +27,15 @@ angular.module('shortly.auth', [])
         console.error(error);
       });
   };
+
+  $scope.checkValid = function(formValid, callback) {
+    console.log(formValid);
+    if (!formValid) {
+      console.log('something is not valid');
+      alert('username/password invalid');
+    } else {
+      console.log('user/pass is valid');
+      callback();
+    }
+  };
 });
